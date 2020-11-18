@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/assets/hazard_lategame.tres" type="Material" id=2]
+[ext_resource path="res://game/parts/permit_gate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/yoink.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/permit_scan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/parts/flipper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=11]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "All The Pieces Into Place"
+english_dev_commentary = "Q1 says stuff. We use permits here."
+english_hint_giver = "Q1"
+english_level_gimmick = "Traverse."
+english_hint = "Lots of pieces, yet a maze. Well, regardless, here's something that came in - Natco has announced some sort of \"new initiative\", closer to the sun. Simply put... We're going, you're coming with us."
+music_edit = "nov3p3-e"
+music_run = "nov3p3-r"
+is_1995_ui = true
+
+[node name="level1" type="Sprite" parent="."]
+position = Vector2( 525.456, 269.012 )
+scale = Vector2( 2, 2 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 376.259, 332.488 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 24.6682, 86.4171 )
+rotation = -0.384294
+oneshot = true
+oneshot_counter = 3
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 580.033, 114.042 )
+
+[node name="permit_scan" parent="." instance=ExtResource( 8 )]
+position = Vector2( 555.09, 1036.83 )
+rotation = 0.309151
+
+[node name="moon_upper2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 223.673, 470.401 )
+
+[node name="moon_upper3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 886.502, 548.801 )
+
+[node name="moon_upper4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 205.855, 1090.47 )
+
+[node name="moon_upper5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1086.06, 1208.07 )
+
+[node name="moon_upper7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1410.35, 256.586 )
+
+[node name="moon_upper8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1592.09, 830.325 )
+
+[node name="moon_upper9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1503, 1535.92 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1787.14, 1856.54 )
+required_fraction = 1.0
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -136.213, 955.322 )
+
+[node name="Node2D2" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 1880.14, 964.98 )
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 866.437, -41.0624 )
+rotation = -1.5708
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 864.321, 1635.5 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 871.88, 1968.12 )
+rotation = -1.5708
+
+[node name="Line2D" type="Line2D" parent="walls"]
+material = ExtResource( 2 )
+points = PoolVector2Array( -184, -39.5, 1885.69, -37.9979, 1879.55, 1636.92, -135.696, 1636.62, -136.901, -115.625 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Line2D2" type="Line2D" parent="walls"]
+points = PoolVector2Array( 1899.64, 1734.35, 1639.8, 1764.63, 1681.85, 2034.55, 1971.12, 1843.67 )
+default_color = Color( 0.462745, 0.176471, 0.0784314, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D"]
+polygon = PoolVector2Array( 1969.55, 1840.56, 1975.85, 1848.12, 1677.88, 2043.41, 1634.42, 1758.66, 1899.63, 1730.32, 1902.15, 1740.39, 1647.01, 1769.37, 1684.81, 2023.25 )
+
+[node name="permit_gate" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1934.41, 1787.17 )
+rotation = -0.566374
+
+[node name="yoink" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1712.56, 410.827 )
+rotation = 0.341285
+power = 1350.0
+
+[node name="box" parent="." instance=ExtResource( 11 )]
+position = Vector2( 291.6, 162.393 )
+rotation = -0.551015
+
+[node name="flipper" parent="." instance=ExtResource( 10 )]
+position = Vector2( 241.33, 315.261 )
+rotation = -0.551015
+
+[node name="flipper2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 122.813, 228.766 )
+[connection signal="dot_passed" from="permit_scan" to="permit_gate" method="disable"]

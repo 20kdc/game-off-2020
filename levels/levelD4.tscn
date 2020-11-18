@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://levels/levelD4.gd" type="Script" id=1]
+[ext_resource path="res://music/nov10.ogg" type="AudioStream" id=2]
+[ext_resource path="res://levels/dSeriesParallaxSun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/bad_art.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/the_literal_sun.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/widebox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.495454 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.331818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.539394, 1 )
+colors = PoolColorArray( 1, 0, 0, 0, 1, 0.723633, 0, 1, 1, 1, 1, 0 )
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "A Point"
+english_hint_giver = "John Natco"
+english_hint = "Let's be clear. You have one dot that's viable as a weapon, and it's just slightly heavy. Do you know what I have? I have a ship capable of destroying every single moon you hold dear. And it is headed your way. Surrender."
+hint_time = 8.0
+has_sun = true
+no_mischief = true
+
+[node name="the_literal_sun" parent="." instance=ExtResource( 7 )]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
+progress = 1.0
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 513.737, 3329.78 )
+amount = 1000
+preprocess = 1.0
+fixed_fps = 60
+emission_shape = 2
+emission_rect_extents = Vector2( 1920, 5400 )
+gravity = Vector2( 0, 0 )
+scale_amount = 8.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 869.202, 6279.7 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 17.541, 40.0903 )
+oneshot = true
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 387.392, 319.617 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D"]
+polygon = PoolVector2Array( -200.018, 12.5863, 490.607, -168.166, 1281.94, 6700.83, 417.423, 6878.82, -204.449, 21.9144, -342.449, -50.0856, -209.779, 8590.91, 2531.85, 8167.6, 756.487, -648.448, -415.774, -101.285 )
+
+[node name="box" parent="." instance=ExtResource( 8 )]
+position = Vector2( -55.176, 452.155 )
+rotation = 1.5708
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 66.0127, 216.762 )
+rotation = -0.123482

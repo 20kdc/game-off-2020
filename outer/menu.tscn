@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://outer/start_level_button.gd" type="Script" id=1]
+[ext_resource path="res://compliance/credits.tscn" type="PackedScene" id=2]
+[ext_resource path="res://outer/level_select.gd" type="Script" id=3]
+[ext_resource path="res://common_assets/button_click_noise_maker.gd" type="Script" id=4]
+[ext_resource path="res://music/music_anchor.gd" type="Script" id=5]
+[ext_resource path="res://outer/switch_to_older_ui.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://outer/fullscreen_toggle.gd" type="Script" id=8]
+[ext_resource path="res://boot/exit.tscn" type="PackedScene" id=9]
+
+[node name="Node2D" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwitchToOlderUI" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 474.0
+margin_top = 275.0
+margin_right = 806.0
+margin_bottom = 445.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+margin_right = 332.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2"]
+margin_top = 132.0
+margin_right = 332.0
+margin_bottom = 170.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 325.0
+margin_bottom = 31.0
+
+[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer2/PanelContainer/VBoxContainer"]
+margin_right = 318.0
+columns = 5
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/PanelContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 318.0
+margin_bottom = 24.0
+
+[node name="Button2" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 57.0
+margin_bottom = 20.0
+text = "Credits"
+script = ExtResource( 1 )
+target = ExtResource( 2 )
+param = "credits"
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Button2"]
+script = ExtResource( 4 )
+
+[node name="Button3" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 61.0
+margin_right = 139.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "Fullscreen"
+script = ExtResource( 8 )
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Button3"]
+script = ExtResource( 4 )
+special = "run_"
+
+[node name="Button5" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 143.0
+margin_right = 220.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "UI Sounds"
+script = ExtResource( 8 )
+flag = "ui_sounds"
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Button5"]
+script = ExtResource( 4 )
+special = "run_"
+
+[node name="Button6" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 224.0
+margin_right = 274.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "Music"
+script = ExtResource( 8 )
+flag = "music"
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Button6"]
+script = ExtResource( 4 )
+special = "run_"
+
+[node name="fidget" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 224.0
+margin_right = 322.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "Fidget Button"
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/fidget"]
+script = ExtResource( 4 )
+special = "run_"
+
+[node name="Button4" type="Button" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 278.0
+margin_right = 318.0
+margin_bottom = 20.0
+text = "Quit"
+script = ExtResource( 1 )
+target = ExtResource( 9 )
+
+[node name="ButtonClickNoiseMaker3" type="Node" parent="VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Button4"]
+script = ExtResource( 4 )
+
+[node name="MusicAnchor" type="Node" parent="."]
+script = ExtResource( 5 )
+track = "when_days_were_simple"

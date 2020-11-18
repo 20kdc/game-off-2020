@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8192.0
+
+[node name="the_literal_sun" type="Area2D"]
+visible = false
+space_override = 3
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

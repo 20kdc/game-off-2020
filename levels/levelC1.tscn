@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/permit_box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/assets/hazard_lategame.tres" type="Material" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/permit_scan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/widebox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "Out 'n' Around"
+english_dev_commentary = "This is where Q1 is introduced. Also, permit locks."
+english_hint_giver = "Q1"
+english_level_gimmick = "Escape."
+english_hint = "Look, I know the older software version sucks, but we've got to get ourselves outta here. Thank goodness for political bullshit, though - barely a moon over, they've gone and hid themselves behind a permit lock. Cowards. If we can get through it, nobody's going to follow us. Through the gate, around, and in."
+music_edit = "nov3p3-e"
+music_run = "nov3p3-r"
+is_musical_intro = true
+is_1995_ui = true
+
+[node name="Line2D" type="Line2D" parent="."]
+material = ExtResource( 3 )
+points = PoolVector2Array( -113.352, -71.5407, 850.245, -74.7328, 851.07, 676.058, -68.9296, 674.058, -68.8045, -125.281 )
+default_color = Color( 1, 1, 0, 1 )
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 376.259, 332.488 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 60.2676, 533.392 )
+rotation = -2.21301
+oneshot = true
+oneshot_counter = 3
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 726.107, 94.7191 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 723, 486 )
+required_fraction = 1.0
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -68.5469, 287.902 )
+
+[node name="Node2D2" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 849.64, 265.524 )
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 455.306, -73.0986 )
+rotation = -1.5708
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 440.774, 672.989 )
+rotation = -1.5708
+
+[node name="box" parent="." instance=ExtResource( 8 )]
+position = Vector2( 197.129, 124.005 )
+rotation = 1.5708
+
+[node name="box2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 78.4932, 159.34 )
+rotation = 1.5708
+
+[node name="permit_scan" parent="." instance=ExtResource( 7 )]
+position = Vector2( 506.776, 93.6788 )
+
+[node name="permit_gate2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 723, 486 )
+[connection signal="dot_passed" from="permit_scan" to="permit_gate2" method="disable"]

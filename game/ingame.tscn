@@ -1,0 +1,335 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/ingame.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/viewport_resizer.gd" type="Script" id=2]
+[ext_resource path="res://game/video_call.gd" type="Script" id=3]
+[ext_resource path="res://common_assets/rmbcam.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/time_scale.gd" type="Script" id=5]
+[ext_resource path="res://common_assets/button_click_noise_maker.gd" type="Script" id=6]
+
+[node name="Control" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_default_cursor_shape = 3
+stretch = true
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 256, 256 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="rmbcam" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]
+
+[node name="MarginContainer" type="VBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+alignment = 2
+
+[node name="VideoCall" type="HBoxContainer" parent="MarginContainer"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 114.0
+mouse_filter = 2
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VideoCall"]
+margin_left = 483.0
+margin_right = 797.0
+margin_bottom = 114.0
+
+[node name="Label" type="Button" parent="MarginContainer/VideoCall/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 307.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 300, 100 )
+text = "Incoming video call!"
+
+[node name="Timer" type="Timer" parent="MarginContainer/VideoCall"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 598.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+margin_top = 602.0
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1273.0
+margin_bottom = 111.0
+columns = 2
+
+[node name="LevelNameLabel" type="Label" parent="MarginContainer/PanelContainer/GridContainer"]
+margin_top = 3.0
+margin_right = 1066.0
+margin_bottom = 17.0
+text = "Convoy On A Turbulent Sea"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/GridContainer"]
+margin_left = 1070.0
+margin_right = 1266.0
+margin_bottom = 20.0
+
+[node name="RunStopButton" type="Button" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer2"]
+margin_right = 78.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "RUN/STOP"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer2/RunStopButton"]
+script = ExtResource( 6 )
+special = "run_"
+
+[node name="TimeSlider" type="HSlider" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer2"]
+margin_left = 82.0
+margin_right = 196.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+min_value = 25.0
+step = 25.0
+value = 100.0
+script = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/GridContainer"]
+margin_top = 24.0
+margin_right = 1066.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer"]
+margin_right = 1042.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HintGiverText" type="Label" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer/PanelContainer2"]
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 1035.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "
+
+"
+autowrap = true
+percent_visible = 0.0
+
+[node name="HintAdvance" type="Button" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer"]
+margin_left = 1046.0
+margin_right = 1066.0
+margin_bottom = 80.0
+text = ">"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/HBoxContainer/HintAdvance"]
+script = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/GridContainer"]
+margin_left = 1070.0
+margin_top = 24.0
+margin_right = 1266.0
+margin_bottom = 104.0
+
+[node name="LevelGimmickLabel" type="Label" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer"]
+margin_right = 196.0
+margin_bottom = 14.0
+text = "Get 35% of ships to the target."
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 196.0
+margin_bottom = 32.0
+
+[node name="RTM" type="Button" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 196.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+text = "Return to menu"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/RTM"]
+script = ExtResource( 6 )
+
+[node name="Cheats" type="HBoxContainer" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 196.0
+margin_bottom = 80.0
+
+[node name="LoadButton" type="Button" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats"]
+margin_right = 19.0
+margin_bottom = 20.0
+text = "L"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/LoadButton"]
+script = ExtResource( 6 )
+
+[node name="SaveButton" type="Button" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats"]
+margin_left = 23.0
+margin_right = 42.0
+margin_bottom = 20.0
+text = "S"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/SaveButton"]
+script = ExtResource( 6 )
+
+[node name="WinButton" type="Button" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats"]
+margin_left = 46.0
+margin_right = 71.0
+margin_bottom = 20.0
+text = "W"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/WinButton"]
+script = ExtResource( 6 )
+
+[node name="WinScreen" type="MarginContainer" parent="."]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.266667 )
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScreen"]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen/CenterContainer"]
+margin_left = 633.0
+margin_top = 353.0
+margin_right = 647.0
+margin_bottom = 367.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 134.0
+margin_bottom = 63.0
+
+[node name="Label" type="Label" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 14.0
+text = "Success!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 127.0
+margin_bottom = 56.0
+
+[node name="WinScreenBack" type="Button" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 42.0
+margin_bottom = 20.0
+text = "Back"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/WinScreenBack"]
+script = ExtResource( 6 )
+
+[node name="WinScreenContinue" type="Button" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 46.0
+margin_right = 127.0
+margin_bottom = 20.0
+text = "Continue..."
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/WinScreenContinue"]
+script = ExtResource( 6 )
+
+[node name="RTMScreen" type="MarginContainer" parent="."]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="RTMScreen"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.266667 )
+
+[node name="CenterContainer" type="CenterContainer" parent="RTMScreen"]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="PanelContainer" type="PanelContainer" parent="RTMScreen/CenterContainer"]
+margin_left = 633.0
+margin_top = 353.0
+margin_right = 647.0
+margin_bottom = 367.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RTMScreen/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 306.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 299.0
+margin_bottom = 31.0
+text = "Are you sure you wish to go back to the menu?
+The state of your solution will not be saved."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 35.0
+margin_right = 299.0
+margin_bottom = 55.0
+alignment = 1
+
+[node name="RTMQuit" type="Button" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 147.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RTMQuit"]
+script = ExtResource( 6 )
+
+[node name="RTMBack" type="Button" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 299.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "No"
+
+[node name="ButtonClickNoiseMaker" type="Node" parent="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RTMBack"]
+script = ExtResource( 6 )
+[connection signal="pressed" from="MarginContainer/VideoCall/PanelContainer/Label" to="." method="_on_WinScreenContinue_pressed"]
+[connection signal="timeout" from="MarginContainer/VideoCall/Timer" to="MarginContainer/VideoCall" method="_on_Timer_timeout"]
+[connection signal="toggled" from="MarginContainer/PanelContainer/GridContainer/HBoxContainer2/RunStopButton" to="." method="_on_Button_toggled"]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/GridContainer/HBoxContainer2/TimeSlider" to="MarginContainer/PanelContainer/GridContainer/HBoxContainer2/TimeSlider" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/GridContainer/HBoxContainer/HintAdvance" to="." method="_on_HintAdvance_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/GridContainer/VBoxContainer/RTM" to="." method="_on_RTM_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/GridContainer/VBoxContainer/Cheats/WinButton" to="." method="_on_WinScreenContinue_pressed"]
+[connection signal="pressed" from="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/WinScreenBack" to="." method="_on_WinScreenBack_pressed"]
+[connection signal="pressed" from="WinScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/WinScreenContinue" to="." method="_on_WinScreenContinue_pressed"]
+[connection signal="pressed" from="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RTMQuit" to="." method="_on_RTMQuit_pressed"]
+[connection signal="pressed" from="RTMScreen/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RTMBack" to="." method="_on_RTMBack_pressed"]

@@ -1,0 +1,6 @@
+FROM YOU TO YOURSELF : WHATEVER YOU DO, DO NOT CHANGE THE GAMEPLAY!
+Changing the sprites is fine.
+Simply put, altering the gameplay code in certain ways will break all the levels.
+This is why the game still has an unrealistic 0.1 linear drag factor -
+ the levels are now dependent on it.
+Also the game's better with it because it stops dots just sticking around forever until they hit something.

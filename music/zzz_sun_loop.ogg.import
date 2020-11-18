@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zzz_sun_loop.ogg-2e1f847f5b1988b20da04fb7d2fd85c7.oggstr"
+
+[deps]
+
+source_file="res://music/zzz_sun_loop.ogg"
+dest_files=[ "res://.import/zzz_sun_loop.ogg-2e1f847f5b1988b20da04fb7d2fd85c7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=3.428

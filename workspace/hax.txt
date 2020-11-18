@@ -1,0 +1,39 @@
+Ok, so first off.
+
+Yoinks (the linear accelerators).
+The PLAYER ones are the ones that actually just apply velocity.
+The LEVEL ones:
+ delete the dots (has to be deletion because of weird Godot physics issues)
+ create new dots to replace those dots, starting at the centre of the yoink with fixed velocity
+ALL DOTS ARE TAGGED WITH THEIR RESPECTIVE SPAWNER, AND YOINKS, ALONG WITH FLIPPERS, COUNT AS SPAWNERS.
+This tagging mechanism is setup such that a dot will never be accepted by the yoink/flipper that spawned it.
+This prevents dots getting stuck.
+
+Turning Point.
+This was before I started using level subclasses, so there's an "is_turning_point" flag on the levels.
+In addition, the whole thing has the remains of the old handling of noplace.
+
+The split between Ingame and Level is... weird. Just... Ingame is the UI and the UI state machine, and Level is the gameplay state machine, okay?
+And sometimes those need to be in sync and sometimes they don't.
+
+THE DOT AND PART CLASS HIERARCHIES, OH YE GODS:
+
+Dots are weird because their gravity handling HAS to be in the dot's _physics_process because mumble mumble I don't trust Godot after what happened with early Yoinks.
+But their handling of a lot of other things is based on other stuff detecting dots.
+Continuous collision detection is off, because, get this, collision was actually acting worse with it turned on somehow. I don't even.
+
+Level parts get iterated over by dots to find gravity sources. A gravity source is JUST Moons. You WISH this was a way of getting dots to recognize Yoinks and the like properly.
+
+You probably already know this if you play the game, but both spawners and win moons have a slight bit of gravity.
+This is critical to levels like A1, especially since A1 relies so heavily on transfer of dot inertia into sideways force.
+
+I didn't bother to check the gravity maths at all, and if someone tries to correct it now they will probably break every single level.
+But it feels right.
+And anyway, "someone" means "me" here, so...
+
+So there WAS a really interesting way of showing the user called "near misses".
+Basically, when two dots got near each other and then stopped being near each other, ghost dots would appear at their closest interaction.
+It was awesome, but they ate enough CPU that I axed them in favour of the timescale mess.
+
+Ambience is badly attached to music tracks.
+

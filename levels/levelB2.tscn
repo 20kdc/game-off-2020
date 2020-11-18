@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=2]
+[ext_resource path="res://common_assets/cwall128.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/yoink.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/levelB2.png" type="Texture" id=5]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/parts/supermoon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/parts/yoink_player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game/parts/widebox.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21.2972, 159.817 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.2972, 878.227 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 439.317, 21.5503 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+english_name = "Bureaucratic Space Partitioning"
+english_dev_commentary = "This was originally designed as levelB4, but I decided it was too easy."
+english_hint_giver = "Joanna Ipcrus"
+english_level_gimmick = "Deliver 75% of the cargo."
+english_hint = "I think John Natco is hoping to get you back. He's passed this task over to me with the explicit expectation you have to do it. Lots of restrictions on where we can put stuff, but in particular, some politics in the area about the exact boundaries of space-faring vehicles. Do they even care how this stuff works?"
+music_edit = "nov5-e"
+music_run = "nov5-r"
+hint_time = 16.0
+
+[node name="levelB4" type="Sprite" parent="."]
+position = Vector2( 2123.25, 940.029 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 1503.28, 443.706 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 1065.09, 809.356 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D10" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 2082.68, 2020.52 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3006.19, 928.459 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 1203.71, -89.4813 )
+rotation = 1.5708
+collision_layer = 2147483651
+collision_mask = 3
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3251.27, -89.4626 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D6" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3112.29, 1731.46 )
+rotation = 1.31564
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D8" parent="walls" instance=ExtResource( 3 )]
+position = Vector2( 2166.01, 1872.47 )
+rotation = 2.35933
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D7" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 990, 1037.73 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+
+[node name="more_walls" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="more_walls"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="more_walls/StaticBody2D"]
+position = Vector2( 2002.87, -12.22 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="more_walls/StaticBody2D"]
+position = Vector2( 2002.87, 1150.38 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="more_walls/StaticBody2D"]
+position = Vector2( 2425.53, 1001.14 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="more_walls"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="yoink" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2005.09, 209.416 )
+
+[node name="win" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2488.76, 1336.11 )
+required_fraction = 0.25
+
+[node name="spawner2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1392.8, 109.405 )
+
+[node name="moon" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1392.35, 539.25 )
+
+[node name="yoink2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1626.68, 55.0684 )
+
+[node name="box" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1220.77, 31.004 )
+
+[node name="moon3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2895.49, 1541.32 )
+
+[node name="supermoon" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2635.03, 483.826 )
+
+[node name="box2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1231.35, 170.844 )
+rotation = 0.436332

@@ -1,0 +1,157 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=2]
+[ext_resource path="res://common_assets/cwall128.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/flipper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/expspawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/levelB4.png" type="Texture" id=9]
+[ext_resource path="res://game/parts/supermoon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/parts/yoink_player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game/parts/widebox.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game/parts/blocker_material.tres" type="PhysicsMaterial" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1127.75, 21.5503 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 176.197, 15.4628 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+english_name = "A Hopeful Dream"
+english_dev_commentary = "This is supposed to be the swan song of Joanna Ipcrus."
+english_hint_giver = "Joanna Ipcrus"
+english_level_gimmick = "Deliver 25% of the cargo."
+english_hint = "I'll be honest. We're all stumped on this one. We're giving it to you because none of the senior engineers, myself included, could make it work.
+...they say we all get vacation time if we do this. I'd like that. Maybe have a taste of a life that doesn't revolve around the MOONSHOT, you know?
+20 years ago I was married to this job... now I'd like a divorce. The only good news is, the explosive dot launcher is movable."
+music_edit = "nov3-e"
+music_run = "nov3-r"
+is_musical_intro = true
+hint_time = 16.0
+
+[node name="levelB4" type="Sprite" parent="."]
+position = Vector2( 2116, 948 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 1635.13, 371.787 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 1214.87, 751.027 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D10" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 2070.84, 2227.92 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3006.19, 928.459 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 1203.71, -89.4813 )
+rotation = 1.5708
+collision_layer = 2147483651
+collision_mask = 3
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3251.27, -89.4626 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D6" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 3268.29, 1955.46 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D8" parent="walls" instance=ExtResource( 3 )]
+position = Vector2( 2166.01, 1872.47 )
+rotation = 2.35933
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D9" parent="walls" instance=ExtResource( 3 )]
+position = Vector2( 1983.16, 1125.36 )
+rotation = 2.35933
+collision_layer = 3
+collision_mask = 3
+
+[node name="Node2D7" parent="walls" instance=ExtResource( 2 )]
+position = Vector2( 878.453, 1037.73 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+
+[node name="more_walls" type="Node" parent="."]
+
+[node name="CHECK_THE_EDITOR_DESCRIPTION" type="StaticBody2D" parent="more_walls"]
+collision_layer = 9
+collision_mask = 9
+physics_material_override = ExtResource( 14 )
+__meta__ = {
+"_editor_description_": "This is set to the blocker material to stop an interesting case on the solution where the stars align and the stream bumps into itself."
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="more_walls/CHECK_THE_EDITOR_DESCRIPTION"]
+position = Vector2( 1735.09, 1008.7 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="more_walls"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="more_walls/StaticBody2D2"]
+position = Vector2( 2920.05, 1009.45 )
+shape = SubResource( 2 )
+
+[node name="win" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2674.84, 1507.3 )
+required_fraction = 0.25
+
+[node name="spawner2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1392.8, 109.405 )
+
+[node name="moon" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1392.35, 539.25 )
+editable = true
+
+[node name="yoink2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1937.8, 411.328 )
+
+[node name="box" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1674.34, 718.921 )
+
+[node name="moon3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2287.12, 1283.15 )
+
+[node name="expspawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2584.95, 66.8639 )
+editable = true
+
+[node name="supermoon" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2009.95, 817.58 )
+
+[node name="box2_rename_for_savegame_compat" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2347.67, 1524.04 )
+
+[node name="Node2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2310.98, 662.236 )

@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/yoink_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/parts/supermoon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/assets/hazard_lategame.tres" type="Material" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "A Blind Fling"
+english_dev_commentary = "Being able to show a larger space like this is kinda why I cheated with the look of the game in the C-series. Deal with it."
+english_hint_giver = "Q1"
+english_level_gimmick = "Pursue."
+english_hint = "The annotation support... On this thing... Is... Awful... We're getting you updated software one way or another once we get there. But for now you'll have to live with my spinning line drawings. This is it. The big leap.
+Good luck to you on the alignment... you'll need it."
+music_edit = "nov3p3-e"
+music_run = "nov3p3-r"
+hint_time = 16.0
+is_1995_ui = true
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 376.259, 332.488 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -92.4878, 935.562 )
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -92.5898, 2982.24 )
+
+[node name="Node2D9" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -92.6469, 5030.07 )
+
+[node name="Node2D2" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 868.689, 919.533 )
+
+[node name="Node2D6" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 868.684, 2965.83 )
+
+[node name="Node2D8" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 868.62, 5013.59 )
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 455.306, -73.0986 )
+rotation = -1.5708
+
+[node name="Node2D7" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 452.131, 914.265 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 392.486, 5999.09 )
+rotation = -1.5708
+
+[node name="Line2D2" type="Line2D" parent="walls"]
+points = PoolVector2Array( -2740.32, 9497.69, -1959.97, 8273.34, -1058.53, 7358.45, 165.816, 6537.73, 1443.98, 5945.74, 3206.5, 5542.11, 5389.75, 5280.56, 6891.58, 10190.8, -5310.83, 10205.9, -3710.01, 7336.56, -1278.59, 4799.42, 2572.41, 3062.7, 7208.72, 2065.96, 8838.85, 11957.6, -9036.81, 12161.2, -4036.15, 2657.71, 4542.22, -1158.71, 14246.6, -2266.94 )
+default_color = Color( 1, 0.792157, 0.4, 1 )
+
+[node name="Line2D4" type="Line2D" parent="walls"]
+position = Vector2( 373.755, 106.788 )
+points = PoolVector2Array( -1676.38, 6575.69, -1049.19, 5891.48, -307.958, 5221.53, 247.963, 4865.17, 1046.21, 4466.04, 2029.76, 4123.94 )
+default_color = Color( 1, 0.792157, 0.4, 1 )
+
+[node name="Line2D5" type="Line2D" parent="walls"]
+position = Vector2( 1345.52, -2434.75 )
+rotation = 0.265327
+points = PoolVector2Array( -1676.38, 6575.69, -1049.19, 5891.48, -307.958, 5221.53, 247.963, 4865.17, 1046.21, 4466.04, 2029.76, 4123.94 )
+default_color = Color( 1, 0.792157, 0.4, 1 )
+
+[node name="Line2D3" type="Line2D" parent="walls"]
+points = PoolVector2Array( 9773.12, 12374.7, -13906.8, 4884.09, -11248.8, -2334.66, 9440.88, 11982, -5328.87, -5143.63, -327.338, -6943.94, 9631.08, 11602.1, 6002.51, -8596.96, 10558.4, -8556.64 )
+default_color = Color( 1, 0.792157, 0.4, 1 )
+
+[node name="Line2D" type="Line2D" parent="walls"]
+material = ExtResource( 4 )
+points = PoolVector2Array( -159.193, -73.0878, 873.065, -75.5597, 867.744, 918.536, -94.2562, 914.536, -87.717, -130.269 )
+
+[node name="Line2D7" type="Line2D" parent="walls"]
+points = PoolVector2Array( 400.633, 5889.44, 520, -93 )
+default_color = Color( 0, 0.0980392, 0.596078, 1 )
+
+[node name="Line2D6" type="Line2D" parent="walls"]
+position = Vector2( 401.124, 5887.73 )
+rotation = 0.476077
+points = PoolVector2Array( -65.4931, 19.1792, -68.1628, -12.1895, -51.1436, -46.5615, -19.7748, -65.917, 23.9412, -65.583, 54.6425, -35.5493, 63.3189, 6.83203, 53.3076, 44.541, 21.6052, 67.9009, -28.785, 70.5708, -53.1458, 54.2188, -62.156, 29.8579, -191.669, 18.2471, -329.399, -127.959, -331.232, -272.999, -321.433, -205.291, -269.76, -208.854, -260.852, -263.199, -267.088, -158.964, -164.139, -158.074, -220.824, -163.125, -216.334, -256.289, -161.333, -253.483, -210.722, -250.116, -211.844, -206.901, -169.191, -206.339, -213.761, -202.376, -214.51, -168.29, -113.375, -152.183, -113.749, -254.068, -52.6931, -249.198, -107.007, -244.329, -105.134, -150.31, 36.9187, -156.061, -22.4817, -162.067, -25.1514, -205.45, 31.5793, -204.782, -24.4839, -214.126, -29.1559, -250.167, 16.8961, -250.834 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="walls/Line2D6"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 208.625, -23.8473 )
+rotation = -1.756
+oneshot = true
+oneshot_counter = 3
+speed = 0.25
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 401.027, 5888.18 )
+required_fraction = 1.0
+
+[node name="supermoon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 478, 159 )
+
+[node name="yoink2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 146.42, 230.996 )
+
+[node name="the_sun_proxy" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 536.928, 7281.16 )

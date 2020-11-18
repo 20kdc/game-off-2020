@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nov4x6-r.ogg-5d6375ea1a508c79843cb01e8d39c4b2.oggstr"
+
+[deps]
+
+source_file="res://music/nov4x6-r.ogg"
+dest_files=[ "res://.import/nov4x6-r.ogg-5d6375ea1a508c79843cb01e8d39c4b2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

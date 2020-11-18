@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/parts/flipper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/levelA4.png" type="Texture" id=7]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "But For A Pixel On A Screen"
+english_dev_commentary = "John Natco: This Won't Be The Last You Hear Of Me! *shakes fist in rage*"
+english_hint_giver = "John Natco"
+english_level_gimmick = "Stuff. All of it. Go."
+english_hint = "Oh, that scheming... Joanna Ipcrus wants you in her operators group. Doing her tasks. Oh, she said some fancy words about me, \"mistreatment\", \"threatening\", but she's been after you as an assistant or whatever since the day she had you hired. Bloody hell. Someone needs to do something about her. ...Right, yada yada, get this done."
+music_edit = "nov4p1-e"
+music_run = "nov4p1-r"
+
+[node name="level1" type="Sprite" parent="."]
+position = Vector2( 500.058, 289.648 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 481.726, 269.742 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( -41.7854, -20.0446 )
+rotation = -0.359757
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 153.984, 371.159 )
+
+[node name="moon_upper2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 447.649, 60.1412 )
+
+[node name="moon_upper3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 639.866, 299.078 )
+
+[node name="moon_upper4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 898.825, 124.213 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 708.739, -1.82632 )
+required_fraction = 0.5
+
+[node name="box" parent="." instance=ExtResource( 2 )]
+position = Vector2( 330.526, 244.479 )
+
+[node name="flipper" parent="." instance=ExtResource( 3 )]
+position = Vector2( 77.653, -13.1963 )
+rotation = 0.417901
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -133.76, 287.902 )
+rotation = 0.132645
+
+[node name="Node2D2" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 997.967, 270.869 )
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 133.443, 212.551 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 455.306, -73.0986 )
+rotation = -1.5708
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 464.082, 505.594 )
+rotation = -1.79769
+
+[node name="Node2D6" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 305.163, 160.209 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8

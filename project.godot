@@ -1,0 +1,169 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "ButtonClickNoiseMaker",
+"language": "GDScript",
+"path": "res://common_assets/button_click_noise_maker.gd"
+}, {
+"base": "Node",
+"class": "CyclicTrackPlayer",
+"language": "GDScript",
+"path": "res://common_assets/cyclic_track_player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MSPCCursor",
+"language": "GDScript",
+"path": "res://game/injected/cursor.gd"
+}, {
+"base": "MSPCDotBase",
+"class": "MSPCDot",
+"language": "GDScript",
+"path": "res://game/not_parts/dot.gd"
+}, {
+"base": "RigidBody2D",
+"class": "MSPCDotBase",
+"language": "GDScript",
+"path": "res://game/not_parts/dot_base.gd"
+}, {
+"base": "MSPCDotBase",
+"class": "MSPCDotExp",
+"language": "GDScript",
+"path": "res://game/not_parts/dot_exp.gd"
+}, {
+"base": "MSPCPart",
+"class": "MSPCGravitySource",
+"language": "GDScript",
+"path": "res://game/parts/gravity_source.gd"
+}, {
+"base": "Node2D",
+"class": "MSPCLevel",
+"language": "GDScript",
+"path": "res://game/level.gd"
+}, {
+"base": "MSPCGravitySource",
+"class": "MSPCMoon",
+"language": "GDScript",
+"path": "res://game/parts/moon.gd"
+}, {
+"base": "MSPCPartBase",
+"class": "MSPCPart",
+"language": "GDScript",
+"path": "res://game/part.gd"
+}, {
+"base": "Area2D",
+"class": "MSPCPartBase",
+"language": "GDScript",
+"path": "res://game/part_base.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MSPCRMBCam",
+"language": "GDScript",
+"path": "res://common_assets/rmbcam.gd"
+}, {
+"base": "MSPCGravitySource",
+"class": "MSPCWin",
+"language": "GDScript",
+"path": "res://game/parts/win.gd"
+}, {
+"base": "Node",
+"class": "RigidSender",
+"language": "GDScript",
+"path": "res://common_assets/rigid_sender.gd"
+}, {
+"base": "StaticBody2D",
+"class": "StaticReceiver2D",
+"language": "GDScript",
+"path": "res://common_assets/static_receiver_2d.gd"
+}, {
+"base": "Node2D",
+"class": "TurntableBase",
+"language": "GDScript",
+"path": "res://common_assets/turntable.gd"
+}, {
+"base": "TurntableBase",
+"class": "TurntablePart",
+"language": "GDScript",
+"path": "res://game/parts/part_turntable.gd"
+}, {
+"base": "Timer",
+"class": "YRTextCS",
+"language": "GDScript",
+"path": "res://common_assets/yrtextcs.gd"
+} ]
+_global_script_class_icons={
+"ButtonClickNoiseMaker": "",
+"CyclicTrackPlayer": "",
+"MSPCCursor": "",
+"MSPCDot": "",
+"MSPCDotBase": "",
+"MSPCDotExp": "",
+"MSPCGravitySource": "",
+"MSPCLevel": "",
+"MSPCMoon": "",
+"MSPCPart": "",
+"MSPCPartBase": "",
+"MSPCRMBCam": "",
+"MSPCWin": "",
+"RigidSender": "",
+"StaticReceiver2D": "",
+"TurntableBase": "",
+"TurntablePart": "",
+"YRTextCS": ""
+}
+
+[application]
+
+config/name="AscentSim 2020.11"
+config/description="20kdc's entry into the Itch.io 2020 Game Off."
+run/main_scene="res://boot/entry.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="20kdc Entry Into IGO2020"
+boot_splash/image="res://boot/loader.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+Yank="*res://common_assets/yank.gd"
+Fader="*res://common_assets/fader.gd"
+GlobalFlags="*res://common_assets/global_flags.gd"
+LevelDB="*res://outer/leveldb.gd"
+MusicManager="*res://music/manager.gd"
+UISoundManager="*res://ui/ui_sound_manager.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+
+[layer_names]
+
+2d_physics/layer_1="Real Objects"
+2d_physics/layer_2="Cursor-And-Camera Kinematic"
+2d_physics/layer_3="Cursor Detection"
+2d_physics/layer_4="Cursor-Only Kinematic"
+
+[physics]
+
+common/physics_fps=120
+2d/default_gravity=0
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_environment="res://default_env.tres"

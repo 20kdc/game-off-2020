@@ -1,0 +1,9 @@
+.import
+*.blend1
+*~
+source_blend/assembly
+source_blend/assembly.png
+*.mmpz.bak
+export/*
+!export/stage2
+!export/LICENSE.txt

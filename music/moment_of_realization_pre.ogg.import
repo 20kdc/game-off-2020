@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moment_of_realization_pre.ogg-d358e4d07cbe720bebe7caa550c736ec.oggstr"
+
+[deps]
+
+source_file="res://music/moment_of_realization_pre.ogg"
+dest_files=[ "res://.import/moment_of_realization_pre.ogg-d358e4d07cbe720bebe7caa550c736ec.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

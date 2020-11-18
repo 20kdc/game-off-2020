@@ -1,0 +1,18 @@
+intro: intro
+tutorial: nov3p2
+A-Series: nov4p1
+B-Series: nov5
+levelB4: nov3
+C-Series: nov3p3
+D-Series: nov4x6 (THIS DOESN'T EXIST YET THOUGH)
+levelD4: nov10
+ Note: I didn't realize it at the time, but these are a lot more digital (more saws), and that's exactly the sort of thing I now want in the C-series and D-series tracks.
+turning_point: moment_of_realization
+title: when_days_were_simple
+credits: sad1
+
+UNSURE WHAT TO DO WITH:
+ nov1
+ nov4x6 (-r used in nou_reveal)
+ nov4
+

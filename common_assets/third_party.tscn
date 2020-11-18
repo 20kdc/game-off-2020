@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://common_assets/third_party.gd" type="Script" id=1]
+
+[node name="HSplitContainer" type="HSplitContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 348
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tree" type="Tree" parent="."]
+margin_right = 349.0
+margin_bottom = 720.0
+hide_root = true
+
+[node name="Text" type="TextEdit" parent="."]
+margin_left = 361.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
+readonly = true
+[connection signal="item_selected" from="Tree" to="." method="_on_Tree_item_selected"]

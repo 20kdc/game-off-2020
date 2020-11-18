@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://music/music_anchor.gd" type="Script" id=1]
+
+[node name="Node2D" type="AnimationPlayer"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+rect_scale = Vector2( 2, 2 )
+text = "You will have a limited amount of time to work within.
+Failure to act in time is an action in itself.
+While this screen still shows, time is frozen.
+You may now prepare.
+To continue, simply click a mouse button."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

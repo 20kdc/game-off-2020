@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/supermoon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/assets/hazard_lategame.tres" type="Material" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/yoink_player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/widebox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "Never Enough"
+english_dev_commentary = "This is a nice long level.
+The advantage of dropping backgrounds for these levels is they can be BIG."
+english_hint_giver = "Q1"
+english_level_gimmick = "Continue."
+english_hint = "I think Natco has bigger plans than just one murder. We need to keep getting away."
+music_edit = "nov3p3-e"
+music_run = "nov3p3-r"
+is_1995_ui = true
+
+[node name="level1" type="Sprite" parent="."]
+position = Vector2( 525.456, 269.012 )
+scale = Vector2( 2, 2 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 326.259, 222.488 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 17.541, 40.0903 )
+rotation = -1.19838
+oneshot = true
+oneshot_counter = 3
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 928.986, 56.5008 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2904.79, 273.752 )
+required_fraction = 1.0
+
+[node name="supermoon" parent="." instance=ExtResource( 2 )]
+position = Vector2( 776.693, 485.828 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -98.8374, 287.902 )
+
+[node name="Node2D7" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 1406.94, -570.287 )
+rotation = -0.785398
+
+[node name="Node2D8" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 1417.69, 1120.02 )
+rotation = 0.785398
+
+[node name="Node2D9" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 3934.71, 279.418 )
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 882.937, -80.2258 )
+rotation = -1.5708
+
+[node name="Node2D5" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 3143.23, 149.08 )
+rotation = -1.5708
+
+[node name="Node2D6" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 3156.57, 400.397 )
+rotation = -1.5708
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 887.064, 637.222 )
+rotation = -1.5708
+
+[node name="cage" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="Polygon2D" type="Line2D" parent="cage"]
+material = ExtResource( 3 )
+points = PoolVector2Array( 885.769, -80.9938, 811.641, 97.3002, 599.616, 128.112, 706.871, -80.2867 )
+
+[node name="Polygon2D2" type="Line2D" parent="cage"]
+material = ExtResource( 3 )
+points = PoolVector2Array( -129.586, -81.7855, 1896.7, -78.4979, 2135.07, 152.323, 3934.47, 149.834, 3935.51, 400.789, 2137.53, 401.807, 1900.7, 637.502, -93.3028, 635.502, -99.9874, -140.93 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cage"]
+polygon = PoolVector2Array( 885.41, -92.4583, 896.534, -88.2204, 816.096, 103.982, 587.135, 138.281, 705.301, -89.8096, 715.896, -85.5718, 607.301, 125.261, 805.851, 93.7366 )
+
+[node name="yoink" parent="." instance=ExtResource( 7 )]
+position = Vector2( 742.698, 25.7036 )
+
+[node name="box" parent="." instance=ExtResource( 8 )]
+position = Vector2( 168.824, 392.155 )
+rotation = 1.5708

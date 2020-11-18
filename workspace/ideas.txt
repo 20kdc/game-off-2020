@@ -1,0 +1,29 @@
+MOONSHOT
+ 1. Literal (shoot the moon, i.e. with a gun)
+  1b. Shooting the moon out of something
+ 2. Space/gravity/moon
+ 3. Impossible chances
+  Probability?
+ 4. Destruction of the moon
+
+of these, 3 looks the most interesting to me
+
+CONCEPT: Circles -> tunable angles -> targets???
+
+ WHY NOT BOTH????
+ Circles with gravity that have to get through
+  some sort of obstacle course.
+
+Each individual dot can't have gravity, makes it too
+ unpredictable
+
+TODAY: get this working
+also actual game logic
+also the Stuff And Things Editor
+
+EVENTUALLY:
+
+VERTICAL SLICE
+in particular, CUSTOMIZED LEVEL BACKGROUNDS would be nice
+
+"chalkboard" aesthetic????

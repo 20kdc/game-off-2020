@@ -1,0 +1,7 @@
+#!/bin/sh
+rm -f ascsim-windows.zip ascsim-linux64.tar.gz
+cp ascsim.zip ascsim-mac.zip
+zip ascsim-windows.zip ascsim.exe ascsim.pck LICENSE.txt
+zip ascsim-mac.zip LICENSE.txt
+tar -cf ascsim-linux64.tar ascsim ascsim.pck LICENSE.txt
+gzip ascsim-linux64.tar

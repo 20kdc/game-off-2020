@@ -1,0 +1,61 @@
+in preparation for a mass exodus of humanity
+blahblahblah individual spaceships
+however these ships have no fuel
+therefore FICTIONALORG decided to create a path using
+mixture of gravity slingshots and just plain BS
+didn't matter if some were lost along the way,
+ etcetc, greater good, blahblahblah
+
+but! you DON'T KNOW IT'S HUMANS!
+and then after you find out, you end up working for the resistance, who plan to send explody things to take out the evil FICTIONALORG.
+
+need a mission with just one dot, and setup some sorta confrontation in which the player kills that dot
+and it turns out IT WAS SOMEONE IMPORTANT
+
+----------
+
+Version 2
+
+----------
+
+Ascent Technologies is a company which specializes in the delivery of things through space.
+The delivery method involves a massive cannon and wacky constructions held in place via... I think the current bullshit iteration is "ropes".
+Joanna Ipcrus is the nice friendly senior engineer and executive.
+John Natco starts off a tad assholey but then goes into faux-affably-evil. He wants to be an executive.
+After an initial tutorial... I mean... examination by Joanna Ipcrus, the player gets hired by Ascent Technologies to work on planning out the deliveries.
+
+Chapter A levels take place here. "Learning To Shoot"
+ 1. "Splitting Hairs": John Natco brow-beats player to get it over with on their very first (albeit simple) task.
+ 2. "Skimming The Surface": John Natco is slightly less annoying in this one.
+ 3. "A Flipping Perspective": John Natco states this is a priority order, so get it done now or get fired!
+ 4. "But For A Pixel On A Screen": John Natco says something about Joanna Ipcrus looking out to bring player into her group.
+Chapter B levels take place here. "Orchestra Of Dots"
+ 1. "Acceleration": Joanna Ipcrus says hi, player's been transferred, m8.
+ 2. "Bureaucratic Space Partitioning": Joanna Ipcrus expresses distrust of John Natco, stating "I think he's after my position"...
+ 3. "A Taste Of Things To Come": Joanna Ipcrus congratulates player on their work so far. This level uses a one-shot spawner and is someone important being taken somewhere.
+ 4. "A Hopeful Dream": Most complicated puzzle of first half, Joanna Ipcrus says everybody gets vacation time after this and expresses being dissatisfied with the job (this is important)
+
+After the player has had enough exposure to Joanna Ipcrus that the player might actually care about her, three things happen in sequence:
+1. Level B4
+2. John Natco then tells player that he needs something disposed of, and has the player do it (turning_point)
+3. Player gets video-called by Joanna Ipcrus, who is the person player just sent to her death. (turning_point_post)
+
+Player gets a letter from Q1.
+
+Chapter C levels take place here. "Limited Resources"
+ 1. "Out 'n' Around": Q1 says we've gotta get you off-planet, and introduces permit locks.
+  OLD says he can get the player onto MOONSHOTs, but can't run it in burst-fire mode like Ascent can, and this shot will be to get the player off-planet.
+ 2. "Never Enough": Q1 thinks John Natco has even bigger plans than just murder, and this shot will be to get further away.
+ 3. "All The Pieces Into Place": Q1 has made a breakthrough - John Natco is doing SOMETHING near the sun. This shot gets closer.
+ 4. "A Blind Fling": This is the big shot before Chapter D. This shot takes them to the sun. Q1 says as much.
+  (Cutscene: What they find...)
+
+AND FINALLY...
+"A Choice Is Made": Q1 says John Natco has a MASSIVE SPACESHIP. Destroy it by hitting it SO HARD with a single dot that it gets thrown into the sun.
+
+Chapter D Filler section that was excised:
+ 1. "And Then There Were Two": TBD Q1 says they're dropping off someone to get the word out about what's going on.
+ 2. "But Soon There Were Many": TBD Q1 says you're travelling to a meeting place.
+ 3. "Their Heading Was Set": TBD Q1 tells player everybody's going in. This has a 100% fraction requirement but involves many dots.
+
+

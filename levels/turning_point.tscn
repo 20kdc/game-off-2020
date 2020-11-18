@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://levels/turning_point.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/grad512.png" type="Texture" id=2]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.536424, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.207031, 0.207031, 0.207031, 1, 0.3125, 0.3125, 0.3125, 0 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 240.634, 422.445 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 439.086, 422.445 )
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+english_name = "Turning Point"
+english_dev_commentary = "This should be at the half-way point of the game, and it's where the game should switch from being about sacrificing many dots to achieve a goal to getting individual dots through a course with occasional help."
+english_hint_giver = "John Natco"
+english_level_gimmick = "Destroy the dot."
+english_hint = "Right, this one's a tad... interesting. We have some... ah, 'rubbish' we need to deliver from A to B, but nobody actually really cares if you get it there. In fact, they'd be quite pleased if it... never arrived. This isn't the simulator, I trust you. Just need you to make sure it doesn't actually hit."
+music_edit = "moment_of_realization_pre"
+music_run = "moment_of_realization_pre-r"
+is_musical_intro = true
+hint_time = 8.0
+is_turning_point = true
+no_mischief = true
+
+[node name="Sprite" type="CPUParticles2D" parent="."]
+position = Vector2( 302.642, 229.103 )
+amount = 512
+lifetime_randomness = 0.5
+draw_order = 1
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1280, 720 )
+spread = 180.0
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+color_ramp = SubResource( 3 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 265.178, 234.534 )
+
+[node name="spawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 68.0357, 55.4365 )
+oneshot = true
+
+[node name="moon_lower" parent="." instance=ExtResource( 7 )]
+position = Vector2( 275.353, 463.175 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 412.286, 67.2208 )
+required_fraction = 1.0
+
+[node name="walls" type="Node" parent="."]
+
+[node name="noplace" type="StaticBody2D" parent="walls"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/noplace"]
+position = Vector2( 116.044, 258.996 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls/noplace"]
+position = Vector2( 894.714, 258.996 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D"]
+polygon = PoolVector2Array( 30.26, -90.5233, 179.055, -117.657, 343.871, -122.702, 478.414, -99.1571, 607.912, -36.9308, 675.184, 92.5673, 705.457, 243.929, 668.457, 398.654, 565.868, 523.106, 426.279, 593.742, 278.281, 613.923, 120.193, 593.742, 2.4671, 531.515, -68.1682, 439.017, -115.258, 306.155, -98.4405, 139.657, -63.1228, 35.3863, -32.9988, 50.834, -66.9399, 145.586, -85.3247, 298.321, -40.0699, 424.186, 19.3271, 501.968, 121.151, 557.122, 277.69, 581.034, 419.802, 561.693, 560.231, 492.74, 645.933, 387.173, 683.688, 244.648, 652.54, 98.347, 596.852, -11.1424, 466.734, -75.3402, 342.123, -98.3575, 179.414, -95.9764, 47.2076, -45.6055, -32.6095, 48.5697, -61.5877, 33.7656 )
+
+[node name="Node2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( 398.25, 284.036 )

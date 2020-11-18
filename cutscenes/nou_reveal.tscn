@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://music/music_anchor.gd" type="Script" id=1]
+[ext_resource path="res://cutscenes/nou_reveal_bkg.png" type="Texture" id=3]
+[ext_resource path="res://cutscenes/nou_reveal_fg.png" type="Texture" id=4]
+
+[node name="Node2D" type="AnimationPlayer"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 1 )
+track = "nov4x6-r"
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.666, 0.666 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="nou_reveal_fg" type="Sprite" parent="Sprite"]
+position = Vector2( 918.039, 609.01 )
+rotation = 0.256712
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+rect_scale = Vector2( 2, 2 )
+text = "IMAGE FORWARDED FROM: Q1 - CLICK TO DISMISS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

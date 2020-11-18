@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/parts/moon.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/static_receiver_2d.gd" type="Script" id=2]
+[ext_resource path="res://game/parts/moon.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 31.9287
+
+[node name="moon" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+editable = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="moon" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+[connection signal="body_entered" from="StaticBody2D" to="." method="_on_StaticBody2D_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/part.gd" type="Script" id=1]
+[ext_resource path="res://game/assets/blocker_art.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/parts/blocker_material.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://game/parts/vis_theme_controller.gd" type="Script" id=4]
+[ext_resource path="res://common_assets/pixel.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="box" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+editable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = ExtResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
+
+[node name="Node" type="Node" parent="Sprite"]
+script = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 0.333333, 0.333333, 1 )
+scale = Vector2( 64, 64 )
+texture = ExtResource( 5 )
+
+[node name="Node2D" type="Node" parent="Sprite2"]
+script = ExtResource( 4 )
+is_1995 = true

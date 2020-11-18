@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/levelB3.png" type="Texture" id=3]
+[ext_resource path="res://game/parts/moon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.9563
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "A Taste Of Things To Come"
+english_dev_commentary = "This is where the plot introduces the idea that people use the MOONSHOTs as a form of transportation."
+english_hint_giver = "Joanna Ipcrus"
+english_level_gimmick = "Deliver the people safely."
+english_hint = "Just wanted you to know... you've been doing great so far. Anyway... Ah, one of these. Right, so, you know how people use MOONSHOTs as a form of transportation? Well, we've got some of them now. No fancy tricks, I'm afraid, can't afford to risk their lives. What it must be like to go on one of those..."
+music_edit = "nov5-e"
+music_run = "nov5-r"
+hint_time = 8.0
+
+[node name="level1" type="Sprite" parent="."]
+position = Vector2( 794.703, 167.388 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 595.519, 274.523 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 17.541, 37.5705 )
+rotation = -0.702755
+oneshot = true
+oneshot_counter = 4
+speed = 0.25
+
+[node name="moon_upper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 343.684, 365.672 )
+
+[node name="moon2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 838.216, 108.464 )
+
+[node name="moon3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1354.94, 99.5547 )
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1113.95, 91.6049 )
+required_fraction = 1.0
+
+[node name="walls" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D"]
+polygon = PoolVector2Array( -151.351, 407.014, 58.6492, 321.014, 258.649, 275.014, 394.649, 273.014, 556.649, 313.014, 732.649, 427.014, 930.649, 525.014, 1158.65, 555.014, 1332.65, 531.014, 1518.65, 405.014, 1610.65, 207.014, 1598.69, 21.976, 1459.87, -127.526, 1243.63, -196.938, 990.006, -178.25, 757.743, -108.838, 536.16, -122.187, 341.273, -92.8202, 197.111, -4.72076, 63.6267, 144.781, -112.572, 254.238, -173.975, 323.65, -187.323, 361.025, -179.109, 395.817, -143.584, 439.334, -332.168, 475.356, -184.964, -252.424, 1859.61, -360.367, 1815.16, 665.094, 139.388, 697.585 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls/StaticBody2D"]
+polygon = PoolVector2Array( 698.656, 53.3836, 876.104, -1.36115, 1096.97, -22.1264, 1289.52, -24.0141, 1410.34, -1.36115, 1470.75, 72.261, 1457.53, 172.312, 1365.03, 208.179, 813.808, 202.516, 717.533, 172.312, 679.778, 115.679 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2( -148.259, 419.053 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D2"]
+polygon = PoolVector2Array( -151.351, 407.014, 930.649, 525.014, 1158.65, 555.014, 1332.65, 531.014, 1518.65, 405.014, 1610.65, 207.014, 1598.69, 21.976, 1459.87, -127.526, 1243.63, -196.938, 990.006, -178.25, 757.743, -108.838, 536.16, -122.187, 341.273, -92.8202, -63.2566, -84.4335, -112.572, 254.238, -173.975, 323.65, -187.323, 361.025, -179.109, 395.817, -143.584, 439.334, -332.168, 475.356, -184.964, -252.424, 1859.61, -360.367, 1815.16, 665.094, 139.388, 697.585 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+position = Vector2( -148.259, 419.053 )
+shape = SubResource( 1 )
+
+[node name="box" parent="." instance=ExtResource( 2 )]
+position = Vector2( 247.042, 132.902 )
+
+[node name="box3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 375.331, 143.593 )

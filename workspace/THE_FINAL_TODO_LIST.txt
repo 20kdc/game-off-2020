@@ -1,0 +1,5 @@
+task items are "OK!" or "TBD"
+
+TBD: FIX THE PLOT
+TBD: ACTUALLY RELEASE THE GAME
+

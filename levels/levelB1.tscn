@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://levels/levelB1.gd" type="Script" id=1]
+[ext_resource path="res://game/parts/yoink_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/parts/supermoon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/parts/expspawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/parts/win.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common_assets/cwall1024.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/parts/box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/levelB1.png" type="Texture" id=8]
+[ext_resource path="res://game/parts/spawner.tscn" type="PackedScene" id=9]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+english_name = "Acceleration"
+english_dev_commentary = "This introduces yoinks (linear accelerators) and explosive dots."
+english_hint_giver = "Joanna Ipcrus"
+english_level_gimmick = "Deliver all of the mail."
+english_hint = "
+"
+music_edit = "nov5-e"
+music_run = "nov5-r"
+is_musical_intro = true
+
+[node name="level1" type="Sprite" parent="."]
+position = Vector2( 585.345, 305.629 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="core" type="Node" parent="."]
+
+[node name="camera_start" type="Position2D" parent="core"]
+position = Vector2( 574.036, 282.028 )
+
+[node name="spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 400.754, -13.5188 )
+speed = 0.25
+
+[node name="win" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1110.63, 431.086 )
+required_fraction = 0.5
+
+[node name="expspawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( -26.391, 214.151 )
+rotation = -1.5494
+speed = 0.25
+
+[node name="box" parent="." instance=ExtResource( 7 )]
+position = Vector2( 371.647, 319.605 )
+
+[node name="walls" type="Node" parent="."]
+
+[node name="Node2D" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( -98.8374, 287.902 )
+
+[node name="Node2D2" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 1276.18, 247.565 )
+
+[node name="Node2D3" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 455.306, -73.0986 )
+rotation = -1.5708
+
+[node name="Node2D4" parent="walls" instance=ExtResource( 6 )]
+position = Vector2( 440.774, 672.989 )
+rotation = -1.5708
+
+[node name="supermoon" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3.73804, 589.813 )
+
+[node name="yoink" parent="." instance=ExtResource( 2 )]
+position = Vector2( 196.363, 421.804 )
