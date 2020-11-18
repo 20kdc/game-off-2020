@@ -1,4 +1,4 @@
-we'll see how this goes
+For releases, please see: https://20kdc.itch.io/moonshot
 
 ## about what happened to the commit history
 
